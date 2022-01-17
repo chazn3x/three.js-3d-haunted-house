@@ -23,13 +23,42 @@ const textureLoader = new THREE.TextureLoader()
 /**
  * House
  */
-// Temporary sphere
-const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1, 32, 32),
-    new THREE.MeshStandardMaterial({ roughness: 0.7 })
+// Group
+const house = new THREE.Group()
+scene.add(house)
+
+// Walls
+const walls = new THREE.Mesh(
+    new THREE.BoxGeometry(4,2.5,4),
+    new THREE.MeshStandardMaterial({color: '#ac8e82'})
 )
-sphere.position.y = 1
-scene.add(sphere)
+walls.position.y = 2.5 / 2
+house.add(walls)
+// Roof
+const roof = new THREE.Mesh(
+    new THREE.ConeGeometry(3.5, 1, 4),
+    new THREE.MeshStandardMaterial({color: '#b35f45'})
+)
+roof.position.y = 2.5 + 1 / 2
+roof.rotation.y = Math.PI / 4
+house.add(roof)
+// Door
+const door = new THREE.Mesh(
+    new THREE.PlaneGeometry(2,2),
+    new THREE.MeshStandardMaterial({color: '#aa7b7b'})
+)
+door.position.z = 4 / 2 + .001
+door.position.y = 2 / 2
+house.add(door)
+// Bushes
+const bushGeometry = new THREE.SphereGeometry(1,16,16)
+const bushMaterial = new THREE.MeshStandardMaterial({color: '#89c894'})
+
+const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush1.scale.set(.5,.5,.5)
+bush1.position.set(.8,.2,2.2)
+
+house.add(bush1)
 
 // Floor
 const floor = new THREE.Mesh(
