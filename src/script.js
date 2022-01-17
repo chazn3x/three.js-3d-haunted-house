@@ -143,6 +143,7 @@ for (let i = 0; i < 50; i++) {
     grave.rotation.y = (Math.random() - .5) * .4
     grave.rotation.z = (Math.random() - .5) * .4
     grave.castShadow = true
+    grave.receiveShadow = true
     graves.add(grave)
 }
 
@@ -247,12 +248,19 @@ ghost2.castShadow = true
 ghost3.castShadow = true
 
 walls.castShadow = true
+roof.castShadow = true
 bush1.castShadow = true
 bush2.castShadow = true
 bush3.castShadow = true
 bush4.castShadow = true
 
 floor.receiveShadow = true
+walls.receiveShadow = true
+door.receiveShadow = true
+bush1.receiveShadow = true
+bush2.receiveShadow = true
+bush3.receiveShadow = true
+bush4.receiveShadow = true
 
 doorLight.shadow.mapSize.width = 256
 doorLight.shadow.mapSize.height = 256
